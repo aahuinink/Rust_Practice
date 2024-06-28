@@ -1,4 +1,4 @@
-use std::{collections::HashMap, num::ParseIntError, result::Result};
+use std::collections::HashMap;
 
 fn median(vec: &Vec<i32>) -> Result<i32, &str> {
     let mut sorted: Vec<i32> = vec.clone(); // make mutable deep copy of vec
@@ -50,4 +50,10 @@ mod tests {
     }
 }
 
-fn main() {}
+fn main() {
+    mode(&vec![]);
+    match median(&vec![1,1,1,1,1]) {
+        Ok(penis) => print!("{}", penis),
+        Err(cock) => print!("{}", cock)
+    }
+}

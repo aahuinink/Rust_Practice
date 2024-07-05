@@ -1,4 +1,12 @@
 use std::collections::HashMap;
+use std::thread;
+
+fn main() {
+    let list = vec![1,2,3];
+    println!("Before defining closure: {list:?}");
+
+    thread::spawn(move || println!("From thread: {list:?}")).join().unwrap();
+}
 
 fn median(vec: &Vec<i32>) -> Result<i32, &str> {
     let mut sorted: Vec<i32> = vec.clone(); // make mutable deep copy of vec
@@ -47,13 +55,5 @@ mod tests {
     fn ones () {
         let mode: i32 = mode(&vec![1,1,1,1,4,4,4,5,7]);
         assert_eq!(1,mode)
-    }
-}
-
-fn main() {
-    mode(&vec![]);
-    match median(&vec![1,1,1,1,1]) {
-        Ok(penis) => print!("{}", penis),
-        Err(cock) => print!("{}", cock)
     }
 }
